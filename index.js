@@ -1,4 +1,5 @@
 var button = document.getElementById("callApi");
+var names = ["mark","ada","martin","gemma","jenny","michelle","jo","joe","jason","kimberly","terry","gordon","trisha","kelly","paul","peter","pedro","tammy","geoff","keith","carl","pete","craig","kevin","owen","william","ross","usaine","issy","ozzy","andy","sandra","frances","harvey","jacob","kevin","larry","zac","ben","martin"]
 
 button.onclick = () => {
     var elm = document.createElement("div");
@@ -16,7 +17,7 @@ class Partition{
         newElement.className = "partition"
         element.appendChild(newElement);
         newElement.onclick = ()=> {
-          document.getElementById("information").innerText = `URL: ${this.data.PartitionReplicaAddress} Partiton Key: ${this.data.PartitionKey}`
+          document.getElementById("information").innerHTML = `<b>URL:</b> ${this.data.PartitionReplicaAddress} <br /><b>Partiton Key: </b> ${this.data.PartitionKey}`
       } 
       
         this.element = newElement;  
@@ -80,6 +81,11 @@ class partitionService{
             this.partition.push(partition);
         }        
     }
+    resetName(){
+        var length = names.length;
+        var rand = Math.floor(Math.random() * length) 
+        document.getElementById("name").value = names[rand];
+    }
     getPartition(elm){
         //Random number between 1 and 3
         var sector = Math.floor(Math.random() * 26) + 1  
@@ -87,6 +93,7 @@ class partitionService{
         var partition = 1;
         var name = document.getElementById("name").value;
         delay(Math.random() * 2000)
+        .then(x => {this.resetName()})
         .then(x => {return fetch(`${url}?${name}`)})
         .then(response => response.json())
         .then(json => { partition = sector; 
@@ -109,6 +116,6 @@ function delay(time){
     }, time);
 });}
  
- 
  var app = new partitionService();
+ app.resetName()
 app.addPartitions(26, document.getElementById("app"));
