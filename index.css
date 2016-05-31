@@ -1,0 +1,30 @@
+#app{
+    position:absolute;
+    top:200px;
+    left:100px;
+    width:760px;
+    height:710px;
+    top: calc(50% - 355px);   
+    left: calc(50% - 380px);
+}
+
+.partition{
+    position: absolute;
+    height: 80px;
+    width: 100px;   
+    top: calc(50% - 50px);   
+    left: calc(50% - 50px);   
+    background-color: grey;
+    transition: all;
+    transition-duration: 1s;
+    text-transform: uppercase;
+    word-break: break-all;
+    color: #fff;
+    overflow: hidden;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+
+#partitionContainer{
+    visibility: hidden;
+}

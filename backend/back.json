@@ -1,0 +1,5 @@
+{
+    "partition": 1,
+    "PartitionKey" : "G", 
+    "PartitionReplicaAddress": "Http://localhost:8089/de26cafd-c44a-45cc-bce8-06481a5e7506/131091547014026820-b3f80c6e-efe5-4e26-8343-329f69cae8d7"
+}
