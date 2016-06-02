@@ -13,7 +13,7 @@ class Partition {
         newElement.className = "partition"
         element.appendChild(newElement);
         newElement.onclick = () => {
-            document.getElementById("information").innerHTML = `<b>URL:</b> ${this.data.PartitionReplicaAddress} <br /><b>Partiton Key: </b> ${this.data.PartitionKey}`
+            document.getElementById("information").innerHTML = `<b>URL:</b> ${this.data.Partition.PartitionReplicaAddress} <br /><b>Partiton Key: </b> ${this.data.Partition.PartitionKey}`
         }
         this.element = newElement;
         this.data = {};
