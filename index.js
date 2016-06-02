@@ -76,6 +76,7 @@ class partitionService {
         var url = `http://localhost:7154/api/partitions`;
         var partition = 1;
         var name = document.getElementById("name").value;
+        console.log("Requesting for name " + name);
 
         var headers = new Headers({
             "Accept": "*/*",
@@ -90,6 +91,7 @@ class partitionService {
         };
 
         delay(Math.random() * 2000)
+            .then(x => { this.resetName() })
             .then(x => { return fetch(`${url}?lastname=${name}`, init) })
             .then(response => response.json())
             .then(json => {
@@ -105,7 +107,6 @@ class partitionService {
             })
             .then(x => { return delay(1500) })
             .then(() => { document.getElementById("partitionContainer").appendChild(elm); })
-            .then(x => { this.resetName() })
     }
 }
 function delay(time) {
